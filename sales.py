@@ -1,16 +1,13 @@
 import random
 
 def daily_sales(available_items, inventory_records, current_day):
-    sales = random.randint(0, available_items)
-    available_items -= sales
-
-    restocked_units = 0
-    if available_items < 500:
-        restocked_units = 2000 - available_items
+    sales_daily = 0
+    if current_day % 7 != 0:
+        sales_daily = random.randint(0, 200)
+        available_items = available_items - sales_daily
+        inventory_records.append((current_day, sales_daily,0 , available_items))
+    elif current_day % 7 == 0:
         available_items = 2000
-
-    inventory_records.append((current_day, sales, restocked_units, available_items))
-
     return available_items
 
 
