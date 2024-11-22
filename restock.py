@@ -1,9 +1,11 @@
 def restock_inventory(available_items, inventory_records, current_day):
 
     import random 
-    restocked_units = 0
+    
+    restocked_units = 0                    # inputted restocked_units to equal 0 so python knows to start from 0 on day 0
     if current_day == 0:
         inventory_records.append([0, 0, 2000, 2000])
+
     if current_day % 7 == 0:
         if current_day !=0:
            restocked_units = 2000 - available_items
